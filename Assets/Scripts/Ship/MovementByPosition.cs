@@ -15,7 +15,7 @@ namespace Ship
 
         private void Start()
         {
-            _transformPositions = _positions.GetTransforms;
+            _transformPositions = _positions.Transforms;
             _maxPostion = _transformPositions.Length;
             gameObject.transform.position = _transformPositions[_startPosition].position;
             _currentPosition = _startPosition;

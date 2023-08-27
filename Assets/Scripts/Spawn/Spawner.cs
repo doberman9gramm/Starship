@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,33 +7,34 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _prefabs;
     [SerializeField] private uint _maxPrefabs;
-    [SerializeField] private float _timeBetweenSpawn;
+    [SerializeField] private float _secondsDelayBetweenSpawn;
 
     private List<DisablePoolAdder>  _poolFalseActive = new List<DisablePoolAdder>();
     private Transform[] _positions;
-    private float _startTime;
     private int _prefabsCount = 0;
+
+    private void OnEnable()
+    {
+        StartCoroutine(WaitingAndSpawn());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(WaitingAndSpawn());
+    }
 
     private void Start()
     {
-        _startTime = _timeBetweenSpawn;
-        _positions = GetComponent<PositionGroup>().GetTransforms;
+        _positions = GetComponent<PositionGroup>().Transforms;
     }
 
-    private void Update()
+    private IEnumerator WaitingAndSpawn()
     {
-        if (CheckLeftTime())
-            DoSpawn();
-    }
-
-    private bool CheckLeftTime()
-    {
-        if ((_timeBetweenSpawn -= Time.deltaTime) < 0)
+        while (true)
         {
-            _timeBetweenSpawn = _startTime;
-            return true;
+            yield return new WaitForSeconds(_secondsDelayBetweenSpawn);
+            DoSpawn();
         }
-        return false;
     }
 
     private void DoSpawn()

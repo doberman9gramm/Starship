@@ -9,11 +9,8 @@ public class PositionGroup : MonoBehaviour
         _transforms = new Transform[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++)
-            if (transform.GetChild(i).TryGetComponent<Position>(out Position position))
-                _transforms[i] = position.transform;
-            else
-                throw new System.Exception("Position group иммет дочерние объекты не €вл€ющиес€ позицией");
+            _transforms[i] = transform.GetChild(i).GetComponent<Transform>();
     }
 
-    public Transform[] GetTransforms => _transforms;
+    public Transform[] Transforms => _transforms;
 }
