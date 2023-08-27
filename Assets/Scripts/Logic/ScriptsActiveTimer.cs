@@ -5,7 +5,7 @@ public class ScriptsActiveTimer : MonoBehaviour
 {
     [SerializeField] private MonoBehaviour[] _scripts;
     [SerializeField] private float _secondsToStart;
-    [SerializeField] private OnOff _afterTime;
+    [SerializeField] private bool _activeSelfScriptsAfterTimer;
 
     private void OnEnable()
     {
@@ -17,30 +17,15 @@ public class ScriptsActiveTimer : MonoBehaviour
         StopCoroutine(Timer());
     }
 
-    IEnumerator Timer()
+    private IEnumerator Timer()
     {
         yield return new WaitForSeconds(_secondsToStart);
-
-        switch (_afterTime)
-        {
-            case OnOff.enable:
-                ActivateScripts(true);
-                break;
-            case OnOff.disable:
-                ActivateScripts(false);
-                break;
-        }
+        ActivateScripts(_activeSelfScriptsAfterTimer);
     }
 
     private void ActivateScripts(bool _isActive)
     {
         foreach (var script in _scripts)
             script.enabled = _isActive;
-    }
-
-    enum OnOff
-    {
-        enable,
-        disable
     }
 }

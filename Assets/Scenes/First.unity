@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.23614669, g: 0.23932415, b: 0.27642417, a: 1}
+  m_IndirectSpecularColor: {r: 0.23759666, g: 0.24080682, b: 0.27811772, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3378ad225eda14988873303fc96233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _multiplicationSpeed: 0.1
+  _multiplicationScore: 0.1
 --- !u!1 &552612239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,8 +1907,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onEnableLockMode: 2
   _onDisableLockMode: 1
-  _onEnable: 0
-  _onDisable: 1
+  EnableCursorVisibility: 0
+  DisableCursorVisibility: 0
 --- !u!1 &687263712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,7 +2823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skybox: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
-  _addValue: 0.02
+  _addValuePerFixedUpdate: 0.02
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3213,7 +3213,7 @@ MonoBehaviour:
   _scripts:
   - {fileID: 1712089186}
   _secondsToStart: 0
-  _afterTime: 0
+  _activeSelfScriptsAfterTimer: 0
 --- !u!1 &1078979973
 GameObject:
   m_ObjectHideFlags: 0
@@ -9631,8 +9631,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onEnableLockMode: 2
   _onDisableLockMode: 1
-  _onEnable: 0
-  _onDisable: 1
+  EnableCursorVisibility: 0
+  DisableCursorVisibility: 0
 --- !u!114 &1693359025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9715,7 +9715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8859a639c79484b419cd84eaa148d189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increaseStep: -1.65
 --- !u!21 &1971206265
 Material:
   serializedVersion: 8
@@ -10151,6 +10150,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3935401891010009514, guid: de9030c30c8441d4786c37358f06967e, type: 3}
       propertyPath: _xSpeed
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935401891010009514, guid: de9030c30c8441d4786c37358f06967e, type: 3}
+      propertyPath: _rotationValue.x
       value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6943363565944158535, guid: de9030c30c8441d4786c37358f06967e, type: 3}

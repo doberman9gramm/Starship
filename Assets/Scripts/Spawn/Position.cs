@@ -1,6 +1,3 @@
 using UnityEngine;
 
-public class Position : MonoBehaviour
-{
-
-}
+public class Position : MonoBehaviour { }

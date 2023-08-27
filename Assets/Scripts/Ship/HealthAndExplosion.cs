@@ -21,6 +21,7 @@ namespace Ship
         private void Explosion()
         {
             Time.timeScale = 0.8f;
+
             foreach (Transform shipPart in _shipBody.GetComponentInChildren<Transform>())
             {
                 shipPart.gameObject.AddComponent<Rigidbody>();

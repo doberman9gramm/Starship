@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class ActiveSelfInvertor : MonoBehaviour
+public class ActiveInvertor : MonoBehaviour
 {
     [SerializeField] private KeyCode[] _keys;
     [SerializeField] private GameObject[] _gameObjects;
     
     private void Update()
     {
-        InvertActiveSelfByKeyCode();
+        InvertActiveSelfByKeyCodes();
     }
 
-    private void InvertActiveSelfByKeyCode()
+    private void InvertActiveSelfByKeyCodes()
     {
+        if (_keys == null)
+            return;
+
         foreach (var key in _keys)
             if (Input.GetKeyDown(key))
                 Invert();

@@ -6,11 +6,13 @@ public class PositionGroup : MonoBehaviour
 
     private void Awake()
     {
-        Position[] positions = GetComponentsInChildren<Position>();// IDK why I cannot take all the transforms at once and install them (-_-)
-        _transforms = new Transform[positions.Length];
+        _transforms = new Transform[transform.childCount];
 
-        for (int i = 0; i < positions.Length; i++)
-            _transforms[i] = positions[i].transform;
+        for (int i = 0; i < transform.childCount; i++)
+            if (transform.GetChild(i).TryGetComponent<Position>(out Position position))
+                _transforms[i] = position.transform;
+            else
+                throw new System.Exception("Position group иммет дочерние объекты не €вл€ющиес€ позицией");
     }
 
     public Transform[] GetTransforms => _transforms;

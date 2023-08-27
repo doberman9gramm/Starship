@@ -6,10 +6,14 @@ public class LevelSpeed : MonoBehaviour
 
     public static float GetSpeed => _speed;
 
-    private void Start()
+    private void Awake()
+    {
+        CheckValue();
+    }
+
+    private void CheckValue()
     {
         if (_speed < 0)
-            throw new System.Exception("Error! Speed value < 0 !!!");
-        gameObject.SetActive(false);
+            throw new System.Exception("Error! Speed value < 0 ");
     }
 }
